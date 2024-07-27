@@ -1,0 +1,66 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family: "Marko One", serif;
+}
+
+/* styles.css */
+body {
+    background-color: #f0f0f0;
+    justify-content: center;
+    align-items: center;
+}
+
+.header{
+    box-shadow: 1px 1px 5px black;
+    padding: 1px;
+}
+
+.mainCard{
+    border-radius: 5px;
+    background-color: rgb(235, 235, 235);
+    box-shadow: 2px 2px 36px rgb(218, 218, 218);
+}
+
+.buttonCard{
+    padding-top: 10px;
+    border-radius:5px 5px 0px 0px;
+    box-shadow: 2px 2px 5px rgb(179, 179, 179);
+    transition: all 0.5s;
+}
+
+.btn1{
+    padding: 15px;
+    border: 0;
+    transition: all 0.5s;
+}
+
+.btn1:active{
+    box-shadow: 1px 1px 2px grey;
+}
+
+.btn1:hover{
+    background-color: #bbbbbb;
+    box-shadow: 1px 1px 2px grey;
+}
+
+
+.bno1{
+    border-radius: 10px 0px 0px 0px;
+}
+.bno2{
+    border-radius: 0px 0px 0px 0px;
+}
+.bno3{
+    border-radius: 0px 10px 0px 0px;
+}
+
+/* #################################################################### */
+
+/* Input section */
+
+.inputForms{
+    height: 400px;
+}
+
+/* #################################################################### */
