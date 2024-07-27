@@ -1,0 +1,81 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    background: url('https://static.vecteezy.com/system/resources/previews/006/879/154/large_2x/abstract-and-pattern-background-illustration-with-gradient-color-of-violet-this-luxurious-background-is-suitable-for-presentation-poster-wallpaper-personal-website-ui-and-ux-experiences-etc-free-photo.jpg');
+    background-size: cover;
+}
+
+.contentContainer{
+    width: 1000px;
+    height: 500px;
+    border-radius: 10px;
+    transition: all 0.5s;
+    box-shadow: 2px 2px 36px rgba(0, 0, 0, 0.5); 
+    background-color: rgba(255, 255, 255, 0.356);
+    
+}
+
+
+.loginImageBox{
+    background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/6aed5e56730527.59ba033156f54.png');
+    background-size: cover;
+    border-radius: 0px 10px 10px 0px;
+    width: 500px;
+    height: 500px;
+}
+
+.registerImageBox{
+    background-image: url('https://static.vecteezy.com/system/resources/previews/004/833/117/non_2x/abstract-geometric-purple-background-free-vector.jpg');
+    background-size: cover;
+    
+    border-radius: 10px 0px 0px 10px;
+    width: 500px;
+    height: 500px;
+    margin-left: -15px;
+}
+
+.blackfilter{
+    background-color: rgba(0, 0, 0, 0.205);
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.formControlInput{
+    width: 400px;
+    height: 50px;
+    border-radius: 20px;
+    border: 0;
+}
+
+.formControlInput :focus{
+    border: 0;
+    outline: none;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.747);
+}
+
+.formControlButton{
+    width: 300px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+.typing {
+    font-family: monospace;
+    padding-top: 40%;
+    font-weight: 800;
+    color: rgb(216, 216, 216);
+    text-shadow: 2px 2px 2px rgb(109, 109, 109);
+    animation: typing 1s 1;
+
+}
+
+@keyframes typing {
+    0% { opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
