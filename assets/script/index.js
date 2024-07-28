@@ -74,7 +74,16 @@ function login(){
     
             if (user.password === password) {
                 alert("Login successful");
-                sessionStorage.setItem('userName',user.username)
+                sessionStorage.setItem('userName',user.email)
+
+                function initializeTransactionNumber() {
+                    if (!localStorage.getItem('transactionNumber')) {
+                        localStorage.setItem('transactionNumber', 1000);
+                    }
+                }
+
+                initializeTransactionNumber();
+
                 window.location="home.html"
 
             } else {

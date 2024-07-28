@@ -6,20 +6,21 @@
 
 /* styles.css */
 body {
-    background-color: #f0f0f0;
+    background: url('https://static.vecteezy.com/system/resources/previews/006/879/154/large_2x/abstract-and-pattern-background-illustration-with-gradient-color-of-violet-this-luxurious-background-is-suitable-for-presentation-poster-wallpaper-personal-website-ui-and-ux-experiences-etc-free-photo.jpg');
+    background-size: cover;
     justify-content: center;
     align-items: center;
 }
 
 .header{
+    background-color: rgb(70, 7, 129);
     box-shadow: 1px 1px 5px black;
-    padding: 1px;
 }
 
 .mainCard{
     border-radius: 5px;
     background-color: rgb(235, 235, 235);
-    box-shadow: 2px 2px 36px rgb(218, 218, 218);
+    box-shadow: 2px 2px 36px rgb(0, 0, 0);
 }
 
 .buttonCard{
@@ -64,3 +65,25 @@ body {
 }
 
 /* #################################################################### */
+
+
+/* table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Pi chart section */
+
+.piChartContainer{
+    border-radius: 5px;
+    box-shadow: 2px 1px 4px black;
+}

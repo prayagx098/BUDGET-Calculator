@@ -51,10 +51,13 @@
         <nav>
             <div class="container-fluid header mb-5">
                 <div class="row">
-                    <div class="col-5">
-                        <h1 class="text-secondary text-center mt-5 mb-5">GET_BUGET</h1>
+                    <div class="col-1"></div>
+                    <div class="col-4">
+                        <h1 class="mt-5 text-light" id="greetings"></h1>
                     </div>
-                    <div class="col-5"></div>
+                    <div class="col-5">
+                        <h1 class="text-secondary mt-5 mb-5 ms-5">GET_BUGET</h1>
+                    </div>
                     <div class="col-2 p-5">
                         <button class="btn btn-danger" onclick="logout()">Logout</button>
                     </div>
@@ -67,7 +70,7 @@
 
         <!-- CONTENT SECTION -->
 
-        <div class="container-fluid text-center">
+        <div class="container-fluid text-center mb-5">
 
             <div class="container text-center ">
 
@@ -87,16 +90,18 @@
                     <div class="row inputForms">
                         <div class="col-12">
                             <div id="income" class="form-container">
-                                <div class="container">
+                                <div class="container"><br>
                                     <h1 class="text-dark">INCOME</h1>
                                     <div class="row text-start">
                                         <div class="col-3"></div>
-                                        <div class="col-6">
+                                        <div class="col-6 text-center"><br>
                                             <label for="">Transaction</label>
-                                            <input class="form-control" type="text" placeholder="Transaction">
+                                            <input class="form-control" type="text" placeholder="Transaction" id="depositeDetails"><br>
+                                            <label for="">Date</label>
+                                            <input class="form-control" type="date" placeholder="Date" id="depositDate"><br>
                                             <label for="">Amount</label>
-                                            <input class="form-control" type="text" placeholder="Amount">
-                                            <button class="btn btn-success text-center">DEPOSIT</button>
+                                            <input class="form-control" type="number" placeholder="Amount" id="depositAmount"><br>
+                                            <button class="btn btn-success text-center" onclick="addIncome()">ADD</button>
                                         </div>
                                         <div class="col-3"></div>
                                     </div>
@@ -104,25 +109,45 @@
 
                             </div>                            
                             <div id="expense" class="form-container">
-                                <h1>EXPENSE</h1>
+                                <div class="container"><br>
+                                    <h1 class="text-dark">EXPENSE</h1>
+                                    <div class="row text-start">
+                                        <div class="col-3"></div>
+                                        <div class="col-6 text-center"><br>
+                                            <label for="">Transaction</label>
+                                            <input class="form-control" type="text" placeholder="Transaction" id="withdrawDetails"><br>
+                                            <label for="">Date</label>
+                                            <input class="form-control" type="date" placeholder="Date" id="withdrawDate"><br>
+                                            <label for="">Amount</label>
+                                            <input class="form-control" type="number" placeholder="Amount" id="withdrawAmount"><br>
+                                            <button class="btn btn-danger text-center" onclick="removeIncome()">ADD</button>
+                                        </div>
+                                        <div class="col-3"></div>
+                                    </div>
+                                </div>
                             </div>
                             <div id="transaction" class="form-container">
                                 <H1>TRANSACTION</H1>
-                                <div class="container-fluid bg-light">
-                                    <table>
+                                <div style="overflow-y: scroll; height: 300px;" class="container-fluid bg-light">
+                                    <table> 
                                         <thead>
-                                            <th>SI no</th>
-                                            <th>EXPENSE</th>
-                                            <th>PROFIT</th>
-                                            <th>LOSS</th>
+                                            <tr>
+                                                <th>Trans.No</th>
+                                                <th>Transaction</th>
+                                                <th>Type</th>
+                                                <th>Amount</th>
+                                            </tr>
                                         </thead>
+                                        <tbody id="transactionBody">
+                                            
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="container bg-light text-center">
+                    <div class="container bg-light text-center piChartContainer">
 
                         <div class="row">
 
