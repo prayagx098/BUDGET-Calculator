@@ -56,10 +56,14 @@
                         <h1 class="mt-5 text-light" id="greetings"></h1>
                     </div>
                     <div class="col-5">
-                        <h1 class="text-secondary mt-5 mb-5 ms-5">GET_BUGET</h1>
+                        <h1 class="text-light mt-5 mb-5 ms-5">GET_BUGET</h1>
                     </div>
+
                     <div class="col-2 p-5">
-                        <button class="btn btn-danger" onclick="logout()">Logout</button>
+                        <a style="font-size: x-large;" class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">LOGOUT</a>
+                        <ul style="background-color: transparent;" class="dropdown-menu">
+                          <li><button class="btn btn-danger" onclick="logout()">Logout</button></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -91,7 +95,7 @@
                         <div class="col-12">
                             <div id="income" class="form-container">
                                 <div class="container"><br>
-                                    <h1 class="text-dark">INCOME</h1>
+                                    <h1 class="text-light">INCOME</h1>
                                     <div class="row text-start">
                                         <div class="col-3"></div>
                                         <div class="col-6 text-center"><br>
@@ -110,7 +114,7 @@
                             </div>                            
                             <div id="expense" class="form-container">
                                 <div class="container"><br>
-                                    <h1 class="text-dark">EXPENSE</h1>
+                                    <h1 class="text-light">EXPENSE</h1>
                                     <div class="row text-start">
                                         <div class="col-3"></div>
                                         <div class="col-6 text-center"><br>
@@ -127,15 +131,16 @@
                                 </div>
                             </div>
                             <div id="transaction" class="form-container">
-                                <H1>TRANSACTION</H1>
-                                <div style="overflow-y: scroll; height: 300px;" class="container-fluid bg-light">
-                                    <table> 
-                                        <thead>
+                                <H1 class="text-light">TRANSACTION</H1>
+                                <div style="overflow-y: scroll; height: 300px;color: black; border-radius: 10px;" class="container-fluid bg-light">
+                                    <table style="border-radius: 10px; cursor:pointer;"> 
+                                        <thead style="border-radius: 10px;">
                                             <tr>
                                                 <th>Trans.No</th>
                                                 <th>Transaction</th>
                                                 <th>Type</th>
                                                 <th>Amount</th>
+                                                <th>Balance</th>
                                             </tr>
                                         </thead>
                                         <tbody id="transactionBody">

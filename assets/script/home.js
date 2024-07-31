@@ -13,57 +13,91 @@ greetings.innerHTML = `Welcome ${user.username} ,`
 
 // Function INCOME ADD
 
-function addTransaction(email, transactionDetails, date, amount,type) {
+function addTransaction(email, transactionDetails, date, amount, type) {
   let userData = localStorage.getItem(email);
-  
+
   if (userData) {
       let user = JSON.parse(userData);
 
-      let counter = parseInt(localStorage.getItem('transactionNumber'), 10);
+      // Initialize transactionNumber if it doesn't exist
+      let counter = parseInt(localStorage.getItem('transactionNumber'), 10) || 0;
       let transactionNumber = counter + 1;
-      localStorage.setItem('transactionNumber', transactionNumber); 
+      localStorage.setItem('transactionNumber', transactionNumber);
+
+      // Convert amount to number
+      amount = parseFloat(amount);
+
+      // Get the current balance
+      let balance = user.balance || 0;
+
+      if (type === "debit" && amount > balance) {
+          // Alert insufficient balance and exit function
+          alert("Insufficient balance");
+          return;
+      }
+
+      // Update balance based on transaction type
+      if (type === "credit") {
+          balance += amount;
+      } else if (type === "debit") {
+          balance -= amount;
+      }
 
       user.transaction.push({
           number: transactionNumber,
           details: transactionDetails,
           date: date,
           type: type,
-          amount: amount
+          amount: amount,
+          balance: balance
       });
+
+      user.balance = balance; // Update user's balance
 
       localStorage.setItem(email, JSON.stringify(user));
       alert("Transaction added successfully");
-      showChart();
+      showChart(); // Ensure showChart() is defined elsewhere
   } else {
       alert("User not found");
   }
 }
 
-function addIncome(){
+
+
+function addIncome() {
   let transaction = document.getElementById('depositeDetails').value;
   let date = document.getElementById('depositDate').value;
   let amount = document.getElementById('depositAmount').value;
 
-  let email = sessionStorage.getItem('userName');
+  if (!transaction || !date || !amount) {
 
+      alert("Please fill in all fields");
+      return;
+
+  }
+
+  let email = sessionStorage.getItem('userName');
   let type = "credit";
 
-  addTransaction(email, transaction, date, amount,type);
-
+  addTransaction(email, transaction, date, amount, type);
 }
 
-function removeIncome(){
+function removeIncome() {
   let transaction = document.getElementById('withdrawDetails').value;
   let date = document.getElementById('withdrawDate').value;
   let amount = document.getElementById('withdrawAmount').value;
 
-  let email = sessionStorage.getItem('userName');
+  if (!transaction || !date || !amount) {
+      alert("Please fill in all fields");
+      return;
+  }
 
+  let email = sessionStorage.getItem('userName');
   let type = "debit";
 
-  addTransaction(email, transaction, date, amount,type);
-
+  addTransaction(email, transaction, date, amount, type);
 }
+
 
 
 
@@ -73,26 +107,37 @@ function removeIncome(){
 let Email = sessionStorage.getItem('userName');
 
 function getTransactions(Email) {
+
   let userData = localStorage.getItem(Email);
   let debitTransactions = [];
   let totalCredit = 0;
   
   if (userData) {
+
       let user = JSON.parse(userData);
 
       // Filter and aggregate transactions
       user.transaction.forEach(trans => {
+
           if (trans.type === 'debit') {
+
               debitTransactions.push(trans);
+
           } else if (trans.type === 'credit') {
+
               totalCredit += trans.amount;
+
           }
+
       });
   } else {
+
       console.log("User not found.");
+
   }
 
   return { debitTransactions, totalCredit };
+
 }
 
 function prepareChartData(debitTransactions, totalCredit) {
@@ -183,6 +228,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let amountCell = document.createElement('td');
         amountCell.textContent = `$${trans.amount}`;
         row.appendChild(amountCell);
+
+        let balanceCell = document.createElement('td');
+        balanceCell.textContent = `$${trans.balance}`;
+        row.appendChild(balanceCell);
 
         tableBody.appendChild(row);
     });

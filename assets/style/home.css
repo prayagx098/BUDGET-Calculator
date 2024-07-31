@@ -19,14 +19,14 @@ body {
 
 .mainCard{
     border-radius: 5px;
-    background-color: rgb(235, 235, 235);
+    background:linear-gradient(to top,rgb(5, 26, 119) , rgb(139, 71, 218));
     box-shadow: 2px 2px 36px rgb(0, 0, 0);
 }
 
 .buttonCard{
+    background:linear-gradient(to left,rgb(100, 4, 100) , rgb(70, 0, 150));
     padding-top: 10px;
     border-radius:5px 5px 0px 0px;
-    box-shadow: 2px 2px 5px rgb(179, 179, 179);
     transition: all 0.5s;
 }
 
@@ -62,10 +62,10 @@ body {
 
 .inputForms{
     height: 400px;
+    color: aliceblue;
 }
 
 /* #################################################################### */
-
 
 /* table */
 
