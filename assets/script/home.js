@@ -186,62 +186,69 @@ showChart();
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  let Email = sessionStorage.getItem('userName');
-
-  function getTransactions(Email) {
-      let userData = localStorage.getItem(Email);
-      let transactions = [];
-
-      if (userData) {
+    function loadTransactionData() {
+      let Email = sessionStorage.getItem('userName');
+  
+      function getTransactions(Email) {
+        let userData = localStorage.getItem(Email);
+        let transactions = [];
+  
+        if (userData) {
           let user = JSON.parse(userData);
           transactions = user.transaction || [];
-      } else {
+        } else {
           console.log("User not found.");
+        }
+  
+        console.log(transactions);
+        return transactions;
       }
-
-      console.log(transactions)
-      return transactions;
-  }
-
-  function populateTable(transactions) {
-    let tableBody = document.getElementById('transactionBody');
-    tableBody.innerHTML = '';
-
-    transactions.forEach((trans, index) => {
-        let row = document.createElement('tr');
-        
-        row.style.backgroundColor = trans.type === 'credit' ? '#d4edda' : '#f8d7da'; 
-        
-
-        let siNoCell = document.createElement('td');
-        siNoCell.textContent = trans.number;
-        row.appendChild(siNoCell);
-
-        let detailsCell = document.createElement('td');
-        detailsCell.textContent = trans.details;
-        row.appendChild(detailsCell);
-
-        let typeCell = document.createElement('td');
-        typeCell.textContent = trans.type;
-        row.appendChild(typeCell);
-
-        let amountCell = document.createElement('td');
-        amountCell.textContent = `$${trans.amount}`;
-        row.appendChild(amountCell);
-
-        let balanceCell = document.createElement('td');
-        balanceCell.textContent = `$${trans.balance}`;
-        row.appendChild(balanceCell);
-
-        tableBody.appendChild(row);
-    });
-}
-
-
-  let transactions = getTransactions(email);
-  populateTable(transactions);
-});
-
+  
+      function populateTable(transactions) {
+        let tableBody = document.getElementById('transactionBody');
+        tableBody.innerHTML = '';
+  
+        transactions.forEach((trans) => {
+          let row = document.createElement('tr');
+          
+          row.style.backgroundColor = trans.type === 'credit' ? '#d4edda' : '#f8d7da'; 
+  
+          let siNoCell = document.createElement('td');
+          siNoCell.textContent = trans.number;
+          row.appendChild(siNoCell);
+  
+          let detailsCell = document.createElement('td');
+          detailsCell.textContent = trans.details;
+          row.appendChild(detailsCell);
+  
+          let typeCell = document.createElement('td');
+          typeCell.textContent = trans.type;
+          row.appendChild(typeCell);
+  
+          let amountCell = document.createElement('td');
+          amountCell.textContent = `$${trans.amount}`;
+          row.appendChild(amountCell);
+  
+          let balanceCell = document.createElement('td');
+          balanceCell.textContent = `$${trans.balance}`;
+          row.appendChild(balanceCell);
+  
+          tableBody.appendChild(row);
+        });
+      }
+  
+      let transactions = getTransactions(Email);
+      populateTable(transactions);
+    }
+  
+    let loadButton = document.getElementById('loadTransactionsButton');
+    if (loadButton) {
+      loadButton.addEventListener('click', loadTransactionData);
+    } else {
+      console.error('Button not found.');
+    }
+  });
+  
 
 // logout
 
