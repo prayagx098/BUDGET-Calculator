@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return transactions;
       }
   
-      function populateTable(transactions) {
+      function getTable(transactions) {
         let tableBody = document.getElementById('transactionBody');
         tableBody.innerHTML = '';
   
@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   
       let transactions = getTransactions(Email);
-      populateTable(transactions);
+      getTable(transactions);
     }
   
     let loadButton = document.getElementById('loadTransactionsButton');
